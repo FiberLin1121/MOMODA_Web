@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>首頁</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link href="style/momoda.css" rel="stylesheet" type="text/css">
+        <style>
+            .article-main{
+                margin-top: -20px;
+                width: 100%;
+                height: 2000px;
+            }
+            .article-main div{
+                margin: 0 auto;
+                width: 100%;
+                height: 600px;
+            }
+            .article-main .info{
+                background: url("https://obcdn4.obdesign.com.tw/images/ObdesignBanner/WOMEN/images/190128-EarthTone_1544x180-belt-pc.jpg") no-repeat;
+                background-size: 964px 112px,contain;
+                margin: 0 auto;
+                width: 1000px;
+                height: 112px;
+            }
+
+            .article-main .image{
+                background: url("https://obcdn4.obdesign.com.tw/OB_Images/120168/10226/8ecbe2e5-85f7-4a7f-b986-1167337957ea.jpg") no-repeat;
+                background-size: 964px 362px,contain;
+                margin: 0 auto;
+                width: 1000px;
+                height: 362px;
+            }
+        </style>
+    </head>
+    <script src="https://code.jquery.com/jquery-3.0.0.js"
+            integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script>
+                $(document).ready(init);
+                function init() {
+                    $('[data-toggle="tooltip"]').tooltip();
+                    $("#search").click(showHandler);
+                }
+                function refreshCaptchaLogin() {
+                    $("#captchaImage1").attr("src", "images/captcha.jpeg?test=" + new Date());//變更網址，才會重新送請求，使用new Date()取的現在時間(秒)來refresh
+                }
+                function refreshCaptchaRegister() {
+                    $("#captchaImage2").attr("src", "images/register_captcha.jpeg?test=" + new Date());
+                }
+                function showHandler() {
+                    $("#search-input").fadeToggle(800);
+                    $("#search-button").fadeToggle(800);
+                }
+    </script>
+    <body>
+        <!----------------------------------------------Header------------------------------------------------------>
+        <Header class="Header">
+            <a href="/mmd"><div class="logo"></div></a>
+            <nav class="right-loginbar">
+                <a href="/mmd/login_register.jsp" data-toggle="tooltip" data-placement="top" title="登入">SING IN</a>
+                <a href="/mmd/login_register.jsp" data-toggle="tooltip" data-placement="top" title="會員中心"><i class="fa fa-user-o" style="font-size:12px;color: #999;font-weight: bold;"></i>&emsp;ACCOUNT</a>
+                <a href=# id="cart-a"><i class="fa fa-shopping-cart" style="font-size:15px;color: #999;"></i>&nbsp;&nbsp;<div id="cart-countshow" style="margin-top:-2px;">0</div></a>
+            </nav>
+            <nav class="left-loginbar">
+                <a href="" data-toggle="tooltip" data-placement="top" title="加入粉絲專頁"><i class="fa fa-facebook-f"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="加入instagram"><i class="fa fa-instagram"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="訂閱電子報"><i class="fa fa-envelope"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="新品直播"><i class="fa fa-youtube-play"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="與我們聯絡"><i class="fa fa-comment-o"></i></a>
+                <a href="">&nbsp;&nbsp;</a>
+            </nav>
+        </header>
+        <!----------------------------------------------navbar------------------------------------------------------->
+        <nav class="navbar">
+            <ul>
+                <li><a href=#>新品上市</a></li>
+                <li><a href=#>熱銷排行</a></li>
+                <li class="label1"><a href="/mmd/product_list.html">全館商品</a>
+                    <div class="dropdown-content content1">
+                        <a href=#>上衣</a>
+                        <a href=#>洋裝</a>
+                        <a href=#>下著</a>
+                        <a href=#>外套</a>
+                        <a href=#>配件</a>
+                    </div>
+                </li>
+                <li class="label2"><a href=#>穿搭提案</a>
+                    <div class="dropdown-content content2">
+                        <a href=#>完美化身♥韓劇女主角&nbsp;&nbsp;激似款特搜</a>
+                        <a href=#>情人節攻略&nbsp;&nbsp;撩男友必學穿搭術</a>
+                        <a href=#>寬褲好比例這樣穿&nbsp;&nbsp;腿長UP UP!</a>
+                    </div>
+                </li>
+                <li><a href=#>SALE</a></li>
+                <li >
+                    <i id="search" class="fa fa-search" style="font-size:16px;color:#fff;vertical-align: middle;"></i>
+                </li>
+                <form method="GET" action="">
+                    <input id="search-input" type="search" placeholder="Search.." name="search"><input id="search-button" type="submit" value="GO">
+                </form>
+            </ul>
+        </nav>
+        <!---------------------------------------------article------------------------------------------------------>
+        <article class="article-main">
+            <div id="myCarousel" class="carousel slide">
+                <!--------------------------------------- 輪播（Carousel）指標 --------------------------------------------->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>   
+                <!---------------------------------------- 輪播（Carousel）項目 -------------------------------------------->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="https://obcdn4.obdesign.com.tw/images/ObdesignBanner/WOMEN/images/190219-BA4686_1920x820-v2.jpg" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="https://obcdn4.obdesign.com.tw/images/ObdesignBanner/WOMEN/images/190305-DA6514_1920X820.jpg" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="https://obcdn4.obdesign.com.tw/images/ObdesignBanner/WOMEN/images/190211-AB9080_1920X820.jpg" alt="Third slide">
+                    </div>
+                </div>
+                <!--------------------------------------- 輪播（Carousel）導航 --------------------------------------------->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div> 
+            <br>
+            <br>
+            <div class="image"></div>
+            <div class="info"></div>
+
+
+        </article>
+        <!----------------------------------------------Footer------------------------------------------------------->
+        <footer class="footer">
+            <div class="container">
+                <div class="column">
+                    <h5>品牌核心</h5>
+                    <p>台灣原創自有品牌。<br>服裝不僅是外在表象，而是內蘊的生活感受呈現，在季節與質感間取得完美平衡，設計出實穿的衣著品，給認真看待生活的你。<br><br>擁有隨心所欲的勇氣，穿喜歡的衣服，wearing &amp; showing，做自己好看的樣子。</p>
+                </div>
+                <div class="column">
+                    <h5>與我們聯絡</h5>
+                    <li> (MON-FRI) 9:00 – 18:00</li>
+                    <li>02-2995-9996</li>
+                    <li>02-2995-9978</li>
+                    <li>service@momoda.com.tw</li>
+                </div>
+                <div class="column">
+                    <h5>其他資訊</h5>
+                    <div id="column3">
+                        <div>
+                            <li><i class="fa fa-angle-double-right"></i> 會員權益</li>
+                            <li><i class="fa fa-angle-double-right"></i> 紅利回饋</li>
+                            <li><i class="fa fa-angle-double-right"></i> 售後服務</li>
+                            <li><i class="fa fa-angle-double-right"></i> 常見問題</li>
+                        </div>
+                        <div>
+                            <li><i class="fa fa-angle-double-right"></i> 品牌簡介</li>
+                            <li><i class="fa fa-angle-double-right"></i> 門市資訊</li>
+                            <li><i class="fa fa-angle-double-right"></i> 異業合作</li>
+                            <li><i class="fa fa-angle-double-right"></i> 重要訊息</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <h5>最新消息</h5>
+                    <div class="widget-posts-image">
+                        <img src="images/20190223154942917.jpg" alt=""/>
+                        <img src="images/20190218141450032.jpg" alt=""/>
+                        <img src="images/20190218124826439.jpg" alt=""/>
+                        <img src="images/20190130170319895.jpg" alt=""/>
+                        <img src="images/20181218110254090.jpg" alt=""/>
+                        <img src="images/20181109183506199.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2019 <a href=#>MOMODA</a>, All Rights Reserved</p>
+        </footer>
+    </body>
+</html>

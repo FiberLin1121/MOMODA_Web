@@ -1,0 +1,448 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>全館商品</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link href="style/momoda.css" rel="stylesheet" type="text/css">
+        <style>
+            article {
+                font-size: 16px;
+                padding: 25px 55px 50px;
+                display: flex;
+                flex-direction: row;
+                font-family: Lato,'PingFang TC', 'Hiragino Sans GB', 'Microsoft JhengHei', 'Helvetica Neue', icomoon, serif,sans-serif;
+            }
+            /*----------------------------------------------p-list-main-------------------------------------------------------*/
+            .p-list-main{
+                margin-top: -10px;
+
+                width:1100px;
+                min-width: 30%;
+            }
+            .p-list-container{
+                width:100%;
+                min-width: 10%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            /*----------------------------------------------aside-menu-------------------------------------------------------*/
+            .aside-menu{
+                margin-left: -50px;
+                width: 220px;
+                min-width: 150px;
+                min-height: 1000px;
+                background: #fcfcfc;
+            }
+            .aside-menu section{
+                margin-top: 35px;
+                margin-left: -10px;
+                display: block;
+                width:200px; 
+            }
+            .aside-menu .first{
+                margin-top: 0;
+            }
+            .aside-menu h3{
+                display:block;
+                color: #E6B0AA;
+                margin: 0;
+                position: relative;
+                font-size: 1.2em;
+                font-family: 'Trajan Pro','Playfair Display','Microsoft JhengHei','Hiragino Sans GB','PingFang TC';
+            }
+            .aside-menu span{
+                font-size: 0.8em;
+                color: #a0826e;
+                display: block;
+                line-height: 1.2em;
+                margin-bottom: 11px;
+                font-weight: bold;
+                letter-spacing: 0.08em;
+                margin-top: 25px;
+            }
+            .aside-menu li{
+                list-style-type: none; 
+            }
+            .aside-menu a {
+                font-family: Roboto,'Hiragino Sans GB','PingFang TC','Microsoft JhengHei','Helvetica Neue',icomoon,serif,sans-serif;
+                font-weight: 300;
+                line-height: 2.4em;
+                font-size: 0.78em;
+                color: #444;
+                text-decoration:none;
+                letter-spacing: 0.1em;
+            }
+            .aside-menu a:hover{
+                color: #E6B0AA;
+                padding-bottom: 3px;
+                border-bottom: 1px solid #E6B0AA; 
+            }
+            .aside-menu ul a span{
+                font-size: 1em;
+            }   
+            /*----------------------------------------------p-list-title-------------------------------------------------------*/
+            .p-list-title{
+                width: 1070px;
+                height: 47.6px;
+            }
+            .p-list-title h1{
+                display: inline-block;
+                margin: 0 0 0 10px;
+                font-size: 1em;
+                line-height:47.6px;
+                font-family: Roboto,'PingFang TC','Hiragino Sans GB','Microsoft JhengHei','Helvetica Neue',icomoon,serif,sans-serif;
+                font-weight: 300;
+                color: #666;
+                letter-spacing: .1em;
+            }
+            /*-----------------------------------------------order_form-------------------------------------------------------*/
+             #order_form{
+                float: right;
+                margin-top: 10px;
+            }
+            select, option{
+                height: 30px;
+                background: white;
+                border: 1px solid #efefef;
+                width: 150px;
+                font-weight: 300;
+                color: #666;
+                font-size: 0.9em;
+                font-family: Roboto,'Hiragino Sans GB','PingFang TC','Microsoft JhengHei','Helvetica Neue',icomoon,serif,sans-serif;
+                transition: all 0.2s;
+            }
+            select:hover{
+                border: 1px solid #666;
+            }
+            /*-----------------------------------------------figure-------------------------------------------------------*/
+            figure{
+                width: 270px;
+                height: 462px;
+                margin-bottom: 30px;
+            }
+            .p-item-img{
+                background: url("https://image.obdesign.com.tw/catalog/products/DA6308/DA6308@1_50.jpg") no-repeat;
+                background-size:  contain;
+                width: 249px;
+                height: 350px;
+                margin: 0 auto;
+            }
+            #p-img-2{
+                background: url("https://image.obdesign.com.tw/catalog/products/EA2684/EA2684@1_50.jpg") no-repeat;
+                background-size: contain;
+            }
+            #p-img-3{
+                background: url("https://image.obdesign.com.tw/catalog/products/DA5457/DA5457@1_50.jpg") no-repeat;
+                background-size: contain;
+            }
+            #p-img-4{
+                background: url("https://image.obdesign.com.tw/catalog/products/AB4849/AB4849@1_50.jpg") no-repeat;
+                background-size: contain;
+            }
+            figcaption{
+                width: 239.8px;
+                height: 89.6px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 0 auto;
+                padding: 10px;
+                text-align: center;
+                line-height: 1.4em;
+            } 
+            .p-item-title{
+                font-size: 1.5rem;
+                color: #393132;
+                letter-spacing: .05em;
+            }
+            .p-item-size{
+                font-size: 1.5rem;
+                color: #888;
+                position: relative;
+                margin: 0.4em;
+            }
+            .p-item-price{
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #ce687a;
+                padding-right: .4em;
+                line-height: 1.4em;
+            }
+            .p-item-price del{
+                color: #999;
+                font-weight: normal;
+                font-size: 1.3rem;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.0.0.js"
+                integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="
+                crossorigin="anonymous">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <script>
+                    $(document).ready(init);
+                    function init() {
+                        $('[data-toggle="tooltip"]').tooltip();
+                        $("#search").click(showHandler);
+                    }
+                    function refreshCaptchaLogin() {
+                        $("#captchaImage1").attr("src", "images/captcha.jpeg?test=" + new Date());//變更網址，才會重新送請求，使用new Date()取的現在時間(秒)來refresh
+                    }
+                    function refreshCaptchaRegister() {
+                        $("#captchaImage2").attr("src", "images/register_captcha.jpeg?test=" + new Date());
+                    }
+                    function showHandler() {
+                        $("#search-input").fadeToggle(800);
+                        $("#search-button").fadeToggle(800);
+                    }
+        </script>
+    <body>
+        <!----------------------------------------------Header------------------------------------------------------>
+        <Header class="Header">
+            <a href="/mmd"><div class="logo"></div></a>
+            <nav class="right-loginbar">
+                <a href="/mmd/login_register.jsp" data-toggle="tooltip" data-placement="top" title="登入">SING IN</a>
+                <a href="/mmd/login_register.jsp" data-toggle="tooltip" data-placement="top" title="會員中心"><i class="fa fa-user-o" style="font-size:12px;color: #999;font-weight: bold;"></i>&emsp;ACCOUNT</a>
+                <a href=# id="cart-a"><i class="fa fa-shopping-cart" style="font-size:15px;color: #999;"></i>&nbsp;&nbsp;<div id="cart-countshow" style="margin-top:-2px;">0</div></a>
+            </nav>
+            <nav class="left-loginbar">
+                <a href="" data-toggle="tooltip" data-placement="top" title="加入粉絲專頁"><i class="fa fa-facebook-f"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="加入instagram"><i class="fa fa-instagram"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="訂閱電子報"><i class="fa fa-envelope"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="新品直播"><i class="fa fa-youtube-play"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="與我們聯絡"><i class="fa fa-comment-o"></i></a>
+                <a href="">&nbsp;&nbsp;</a>
+            </nav>
+        </header>
+        <!----------------------------------------------navbar------------------------------------------------------->
+        <nav class="navbar">
+            <ul>
+                <li><a href=#>新品上市</a></li>
+                <li><a href=#>熱銷排行</a></li>
+                <li class="label1"><a href="/mmd/product_list.html">全館商品</a>
+                    <div class="dropdown-content content1">
+                        <a href=#>上衣</a>
+                        <a href=#>洋裝</a>
+                        <a href=#>下著</a>
+                        <a href=#>外套</a>
+                        <a href=#>配件</a>
+                    </div>
+                </li>
+                <li class="label2"><a href=#>穿搭提案</a>
+                    <div class="dropdown-content content2">
+                        <a href=#>完美化身♥韓劇女主角&nbsp;&nbsp;激似款特搜</a>
+                        <a href=#>情人節攻略&nbsp;&nbsp;撩男友必學穿搭術</a>
+                        <a href=#>寬褲好比例這樣穿&nbsp;&nbsp;腿長UP UP!</a>
+                    </div>
+                </li>
+                <li><a href=#>SALE</a></li>
+                <li >
+                    <i id="search" class="fa fa-search" style="font-size:16px;color:#fff;vertical-align: middle;"></i>
+                </li>
+                <form method="GET" action="">
+                    <input type="search" id="search-input" placeholder="Search.." name="search"><input type="submit" id="search-button" value="GO">
+                </form>
+            </ul>
+        </nav>
+
+        <!---------------------------------------------article------------------------------------------------------>
+        <article>
+            <!-------------------------------------------aside-menu----------------------------------------------------->
+            <aside class="aside-menu">
+                <section class="first">
+                    <ul>
+                        <h3>ON SALE</h3>
+                        <span>活動</span>
+                        <li><a href=#>早春特惠新品7折</a></li>
+                        <li><a href=#>HOT熱賣現折220</a></li>
+                        <li><a href=#>熱賣商品✪補貨到！</a></li>
+                        <li><a href=#>小編精選均一價$290</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <span>最新商品</span>
+                        <li><a href=#>2019春新品登場</a></li>
+                        <li><a href=#>上週新品</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <span>特別企劃</span>
+                        <li><a href=#>婚禮女神look</a></li>
+                        <li><a href=#>一周洋裝穿搭日記</a></li>
+                        <li><a href=#>經典不敗百搭背心</a></li>
+                        <li><a href=#>基本配色穿搭術</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li><a href=#><span>新品上市</span></a></li>
+                        <li><a href=#><span>熱銷排行</span></a></li>
+                        <li><a href=#><span>直播精選</span></a></li>
+                        <li><a href=#><span>上衣</span></a></li>
+                        <li><a href=#><span>洋裝</span></a></li>
+                        <li><a href=#><span>下著</span></a></li>
+                        <li><a href=#><span>外套</span></a></li>
+                        <li><a href=#><span>配件</span></a></li>
+                    </ul>
+                </section>
+            </aside>
+            <!-------------------------------------------p-list-main----------------------------------------------------->
+            <section class="p-list-main">
+                <section class="p-list-title">
+                    <h1>洋裝穿搭日記</h1>
+                    <form>
+                        <label></label>
+                        <select tabindex="3" name="order" id="order">
+                            <option value="">最新到貨</option>
+                            <option value="desc">價格 > 由高到低</option>
+                            <option value="asc">價格 > 由低到高</option>
+                        </select>
+                    </form>
+                </section>
+                <div class="p-list-container">
+                    <figure>         
+                        <div class="p-item-img"></div>
+                        <figcaption>
+                            <div class="p-item-title">滿版蕾絲拼接魚尾裙擺洋裝</div>
+                            <div class="p-item-size">F</div>            
+                            <div class="p-item-price">
+                                <span><del>NTD.480</del></span>
+                                <span class="sale">NTD.199</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure>         
+                        <div class="p-item-img" id="p-img-2"></div>
+                        <figcaption>
+                            <div class="p-item-title">清新格紋小立領V字洋裝</div>
+                            <div class="p-item-size">F</div>            
+                            <div class="p-item-price">
+                                <span><del>NTD.480</del></span>
+                                <span class="sale">NTD.408</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure>         
+                        <div class="p-item-img" id="p-img-3"></div>
+                        <figcaption>
+                            <div class="p-item-title">素色腰抽繩棉麻背心洋裝</div>
+                            <div class="p-item-size">F</div>            
+                            <div class="p-item-price">
+                                <span><del>NTD.460</del></span>
+                                <span class="sale">NTD.391</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure>         
+                        <div class="p-item-img" id="p-img-4"></div>
+                        <figcaption>
+                            <div class="p-item-title">翻領設計素色露肩洋裝</div>
+                            <div class="p-item-size">F</div>            
+                            <div class="p-item-price">
+                                <span><del>NTD.580</del></span>
+                                <span class="sale">NTD.493</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure>         
+                        <div class="p-item-img" id="p-img-2"></div>
+                        <figcaption>
+                            <div class="p-item-title">拼接魚尾裙擺縮腰格紋洋裝</div>
+                            <div class="p-item-size">F</div>            
+                            <div class="p-item-price">
+                                <span><del>NTD.480</del></span>
+                                <span class="sale">NTD.199</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure>         
+                        <div class="p-item-img" id="p-img-3"></div>
+                        <figcaption>
+                            <div class="p-item-title">浪漫雕花蕾絲V領洋裝</div>
+                            <div class="p-item-size">F</div>            
+                            <div class="p-item-price">
+                                <span><del>NTD.450</del></span>
+                                <span class="sale">NTD.399</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure>         
+                        <div class="p-item-img" id="p-img-4"></div>
+                        <figcaption>
+                            <div class="p-item-title">簡約隱藏式排釦翻領長洋裝</div>
+                            <div class="p-item-size">F</div>            
+                            <div class="p-item-price">
+                                <span><del>NTD.480</del></span>
+                                <span class="sale">NTD.409</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure>         
+                        <div class="p-item-img"></div>
+                        <figcaption>
+                            <div class="p-item-title">針織背心綁結點點長洋裝</div>
+                            <div class="p-item-size">F</div>            
+                            <div class="p-item-price">
+                                <span><del>NTD.360</del></span>
+                                <span class="sale">NTD.299</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+        </article>
+        <!----------------------------------------------Footer------------------------------------------------------->
+        <footer class="footer">
+            <div class="container">
+                <div class="column">
+                    <h5>品牌核心</h5>
+                    <p>台灣原創自有品牌。<br>服裝不僅是外在表象，而是內蘊的生活感受呈現，在季節與質感間取得完美平衡，設計出實穿的衣著品，給認真看待生活的你。<br><br>擁有隨心所欲的勇氣，穿喜歡的衣服，wearing &amp; showing，做自己好看的樣子。</p>
+                </div>
+                <div class="column">
+                    <h5>與我們聯絡</h5>
+                    <li> (MON-FRI) 9:00 – 18:00</li>
+                    <li>02-2995-9996</li>
+                    <li>02-2995-9978</li>
+                    <li>service@momoda.com.tw</li>
+                </div>
+                <div class="column">
+                    <h5>其他資訊</h5>
+                    <div id="column3">
+                        <div>
+                            <li><i class="fa fa-angle-double-right"></i> 會員權益</li>
+                            <li><i class="fa fa-angle-double-right"></i> 紅利回饋</li>
+                            <li><i class="fa fa-angle-double-right"></i> 售後服務</li>
+                            <li><i class="fa fa-angle-double-right"></i> 常見問題</li>
+                        </div>
+                        <div>
+                            <li><i class="fa fa-angle-double-right"></i> 品牌簡介</li>
+                            <li><i class="fa fa-angle-double-right"></i> 門市資訊</li>
+                            <li><i class="fa fa-angle-double-right"></i> 異業合作</li>
+                            <li><i class="fa fa-angle-double-right"></i> 重要訊息</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <h5>最新消息</h5>
+                    <div class="widget-posts-image">
+                        <img src="images/20190223154942917.jpg" alt=""/>
+                        <img src="images/20190218141450032.jpg" alt=""/>
+                        <img src="images/20190218124826439.jpg" alt=""/>
+                        <img src="images/20190130170319895.jpg" alt=""/>
+                        <img src="images/20181218110254090.jpg" alt=""/>
+                        <img src="images/20181109183506199.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2019 <a href=#>MOMODA</a>, All Rights Reserved</p>
+        </footer>
+    </body>
+</html>

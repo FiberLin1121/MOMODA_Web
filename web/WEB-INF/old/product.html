@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>商品明細</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link href="style/momoda.css" rel="stylesheet" type="text/css">
+        <link href="style/aside_menu.css" rel="stylesheet" type="text/css"/>
+        <style>
+            article {
+                height: 3100px;
+            }
+            .aside-menu{
+                position: sticky;
+                top: 50px;
+                margin-left: 20px;
+                width: 347px;
+                height: 1199px;
+            }
+            .p-photo{
+                margin-left: 20px;
+                margin-right: 20px;
+                width: 664px;
+                height: 886px;
+            }
+            #p-main-photo img,#p-detail_photo_1 img,#p-detail_photo_2 img{
+                width: 570px;
+            }
+            figcaption{
+                background-color: #fcfcfc;
+                margin-right: 100px;
+                width:347px; 
+                height: 600px;
+                position: sticky;
+                top: 60px;
+            }
+            .block-01{
+                width: 300px;
+                height: 166px;
+                background: #fcfcfc;
+            }
+            .tag{
+                color: #999;
+                font-size: .75em;
+                font-family: Roboto,'Hiragino Sans GB','PingFang TC','Microsoft JhengHei','Helvetica Neue',icomoon,serif,sans-serif;
+                font-weight: 400;
+            }
+            .tag-a a {
+                margin-left: 10px;
+                padding: 0px 10px 0px 12px;
+                background-color: #E1CBAA;
+                color: #fff;
+                float: left;
+                height: 22px;
+                line-height: 21px;
+                font-size: 11px;
+                border-radius: 6px;
+            }
+            .block-01 .tag {
+                top: -.6em;
+            }
+            .block-01 div {
+                display: inline-block;
+                position: relative;
+            }
+            .block-01 h1 {
+                font-size: 1.65em;
+                display: block;
+                line-height: 1.2;
+                font-weight: 400;
+                margin-top: .5em;
+                margin-bottom: 17.6px;
+                font-family: 'Playfair Display',PingFangTC-Thin,'Hiragino Sans GB','Droid Sans Fallback','Noto Sans TC','Microsoft JhengHei';
+            }
+            .block-01 del{
+                font-size: .82em;
+                font-weight: 400;
+                color: #999;
+            }
+            .block-01 span{
+                font-size: 0.9em;
+                font-weight: bolder;
+                color: #ce687a;
+                padding-right: .5em;
+            }
+            .block-01 p a{
+                font-size: .75em;
+                line-height: 4em;
+                color: #cc6c7c;
+                padding-bottom: 0.8px;
+                border-bottom: 1px solid #cc6c7c;
+                text-decoration: none;
+            }
+            .block-02{
+                margin-top: 23px;
+                width: 300px;
+                height: 100px;
+            }
+            .block-02 p{
+                font-size: 0.75em;
+                font-weight: 500;
+                line-height: 1.5em;
+                letter-spacing: .08em;
+            }
+            .block-03{
+                width: 300px;
+                height: 360px;
+            }
+            .color-button{
+                display: inline-block;
+                cursor: pointer;
+                width: 31px;
+                height: 31px;
+                padding: 2.5px;
+                margin-right: 5px;
+                border: 1px solid lightgrey;
+            }
+            #size-box{
+                margin-top: 10px;
+            }
+            .size-button{
+                font-size: 14px;
+                width: 30px;
+                height: 21px;
+                display: inline-block;
+                border: 1px solid #c9c9c9;
+                text-align: center;
+                line-height: 22px;
+                margin-top: 5px;
+                margin-right: 7px;
+                font-family: arial;
+                cursor: pointer;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+            .Quantity-form {
+                margin-top: 5px;
+                display: inline-block;
+            }
+            .Quantity-form label,.Quantity-form select,Quantity-form op{
+                font-size: 12px;
+                font-weight: 500;
+                width: 80px;
+            }
+            .Quantity label{
+                margin-bottom: -5px;
+            }
+            .size-list{
+                display: inline-block;
+                font-size: 0.7em;
+                border-bottom: 1px solid #444; 
+                position: relative;
+                top: -112px;
+                right: -255px;
+            }
+            .button{
+                margin-top: 45px;
+                clear: both;
+                display: block;
+                border: #444 1px solid;
+                width: 290px;
+                height: 44px;
+                background-color: #fcfcfc;
+                color: #333;
+                line-height: 30px;
+                font-size: 16px;
+                transition: all 0.6s;
+            }
+            .button:hover{
+                background-color: #444;
+                color: white;
+            }
+            .border{   
+                border: 1px solid #444;
+            }
+            .collocation {
+                width:570px;
+                height: 270px;
+                margin: 20px;
+                margin-top: -10px;
+            }
+            .collocation p{
+                font-size: 0.9em;
+                text-align: center;
+                font-weight: 500;
+                padding-bottom: 5px;
+                border-bottom: 1px dashed #999;
+            }
+            .collocation h4{
+                font-size: 1.6em;
+                text-align: center;
+                font-weight: 300;
+            }
+            .product-photos_slider{
+                width: 420px;
+                margin: auto;
+                padding: 10px;
+            }
+            .product-photos_slider img{
+                margin: 20px auto;
+                width: 170px;
+                vertical-align: middle;
+            }
+            .collocation-Box{
+                display: inline-block;
+                border-radius:20px;
+                padding: 5px;
+                transition: all 0.4s;
+            }
+            .collocation-Box:hover{
+                background: #f2e7de;
+            }
+            .product-photos_slider span{
+                font-size: 1.5em;
+                font-weight: bold;
+                margin: 5px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.0.0.js"
+                integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="
+                crossorigin="anonymous">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <script>
+                    $(document).ready(init);
+                    function init() {
+                        $('[data-toggle="tooltip"]').tooltip();
+                        $("#search").click(showHandler);
+                        $("#S").click(borderHandler);
+                        $("#M").click(borderHandler);
+                        $("#L").click(borderHandler);
+                        $("#XL").click(borderHandler);
+                        $("#2L").click(borderHandler);
+                        $("#color1").click(borderHandler);
+                        $("#color2").click(borderHandler);
+                    }
+                    function refreshCaptchaLogin() {
+                        $("#captchaImage1").attr("src", "images/captcha.jpeg?test=" + new Date());//變更網址，才會重新送請求，使用new Date()取的現在時間(秒)來refresh
+                    }
+                    function refreshCaptchaRegister() {
+                        $("#captchaImage2").attr("src", "images/register_captcha.jpeg?test=" + new Date());
+                    }
+                    function showHandler() {
+                        $("#search-input").fadeToggle(800);
+                        $("#search-button").fadeToggle(800);
+                    }
+                    function borderHandler() {
+                        $(this).toggleClass("border");
+                    }
+        </script>
+    <body>
+        <!----------------------------------------------Header------------------------------------------------------>
+        <Header class="Header">
+            <a href="/mmd"><div class="logo"></div></a>
+            <nav class="right-loginbar">
+                <a href="/mmd/login_register.jsp" data-toggle="tooltip" data-placement="top" title="登入">SING IN</a>
+                <a href="/mmd/login_register.jsp" data-toggle="tooltip" data-placement="top" title="會員中心"><i class="fa fa-user-o" style="font-size:12px;color: #999;font-weight: bold;"></i>&emsp;ACCOUNT</a>
+                <a href=# id="cart-a"><i class="fa fa-shopping-cart" style="font-size:15px;color: #999;"></i>&nbsp;&nbsp;<div id="cart-countshow" style="margin-top:-2px;">0</div></a>
+            </nav>
+            <nav class="left-loginbar">
+                <a href="" data-toggle="tooltip" data-placement="top" title="加入粉絲專頁"><i class="fa fa-facebook-f"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="加入instagram"><i class="fa fa-instagram"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="訂閱電子報"><i class="fa fa-envelope"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="新品直播"><i class="fa fa-youtube-play"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="與我們聯絡"><i class="fa fa-comment-o"></i></a>
+                <a href="">&nbsp;&nbsp;</a>
+            </nav>
+        </header>
+        <!----------------------------------------------navbar------------------------------------------------------->
+        <nav class="navbar">
+            <ul>
+                <li><a href=#>新品上市</a></li>
+                <li><a href=#>熱銷排行</a></li>
+                <li class="label1"><a href="/mmd/product_list.html">全部商品</a>
+                    <div class="dropdown-content content1">
+                        <a href=#>上衣</a>
+                        <a href=#>洋裝</a>
+                        <a href=#>下著</a>
+                        <a href=#>外套</a>
+                        <a href=#>配件</a>
+                    </div>
+                </li>
+                <li class="label2"><a href=#>穿搭提案</a>
+                    <div class="dropdown-content content2">
+                        <a href=#>完美化身♥韓劇女主角&nbsp;&nbsp;激似款特搜</a>
+                        <a href=#>情人節攻略&nbsp;&nbsp;撩男友必學穿搭術</a>
+                        <a href=#>寬褲好比例這樣穿&nbsp;&nbsp;腿長UP UP!</a>
+                    </div>
+                </li>
+                <li><a href=#>SALE</a></li>
+                <li >
+                    <i id="search" class="fa fa-search" style="font-size:16px;color:#fff;vertical-align: middle;"></i>
+                </li>
+                <form method="GET" action="">
+                    <input id="search-input" type="search" placeholder="Search.." name="search"><input id="search-button" type="submit" value="GO">
+                </form>
+            </ul>
+        </nav>
+
+        <!---------------------------------------------article------------------------------------------------------>
+        <article>
+            <!-------------------------------------------aside-menu----------------------------------------------------->
+            <aside class="aside-menu">
+                <section class="first">
+                    <ul>
+                        <h3>ON SALE</h3>
+                        <span>活動</span>
+                        <li><a href=#>早春特惠新品7折</a></li>
+                        <li><a href=#>HOT熱賣現折220</a></li>
+                        <li><a href=#>熱賣商品✪補貨到！</a></li>
+                        <li><a href=#>小編精選均一價$290</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <span>最新商品</span>
+                        <li><a href=#>2019春新品登場</a></li>
+                        <li><a href=#>上週新品</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <span>特別企劃</span>
+                        <li><a href=#>復古風文藝女孩look</a></li>
+                        <li><a href=#>一周洋裝穿搭日記</a></li>
+                        <li><a href=#>辦公室OL知性衣著</a></li>
+                        <li><a href=#>百看不膩丹寧穿搭術</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li><a href=#><span>新品上市</span></a></li>
+                        <li><a href=#><span>熱銷排行</span></a></li>
+                        <li><a href=#><span>直播精選</span></a></li>
+                        <li><a href=#><span>上衣</span></a></li>
+                        <li><a href=#><span>洋裝</span></a></li>
+                        <li><a href=#><span>下著</span></a></li>
+                        <li><a href=#><span>外套</span></a></li>
+                        <li><a href=#><span>配件</span></a></li>
+                    </ul>
+                </section>
+            </aside>
+            <!------------------------------------------aside-end---------------------------------------------------->
+            <figure>
+                <div id="p-main-photo" class="p-photo">
+                    <img src="product_photo/AB9020@PIC-藍灰-1.jpg">
+                </div>
+                <div id="p-detail_photo_1" class="p-photo">
+                    <img src="product_photo/AB9020@PIC-藍灰-2.jpg">
+                </div>
+                <div id="p-detail_photo_2" class="p-photo">
+                    <img src="product_photo/AB9020@PIC-藍灰-3.jpg">
+                </div>
+                <div class="collocation">
+                    <p>〃COMPLETE&nbsp;&nbsp;YOUR&nbsp;&nbsp;LOOK〃</p>
+                    <h4>單品搭配推薦</h4>
+                    <div class="product-photos_slider">
+                        <div class="collocation-Box">
+                            <img src="product_photo/AB9020@PIC-藍灰-4.png">
+                        </div>
+                        <span>+</span>
+                        <div class="collocation-Box">
+                            <a href=#><img src="product_photo/CA1499@PIC-粉-4.png"></a>
+                        </div>
+
+                    </div>
+                </div>
+            </figure>
+            <figcaption>
+                <section class="block-01">
+                    <div class="tag">#AB9020</div>
+                    <div class="tag-a">
+                        <a>特價品</a>
+                    </div>
+                    <h1>荷葉領綴蝴蝶結排釦雪紡上衣</h1>
+                    <del>NT.550</del>
+                    <span>NT.385</span>
+                    <p><a href=#>早春特惠新品8折</a></p>
+                </section>
+                <section class="block-02">
+                    <p>
+                        採用輕盈的雪紡面料，<br>
+                        使肌膚舒爽自在一整天~<br>
+                        荷葉領拼接展現有型設計感，<br>
+                        綴蝴蝶結使整體感甜美加分! 
+                    </p>
+                </section>
+                <section class="block-03">
+                    <div id="color-select">
+                        <img class="color-button" id="color1" title="粉" src="https://image.obdesign.com.tw/catalog/products/AB9020/AB9020@CB-1.jpg">
+                        <img class="color-button" id="color2" title="藍灰" src="https://image.obdesign.com.tw/catalog/products/AB9020/AB9020@CB-2.jpg">
+                        <div id ="size-box">
+                            <span id="S" class="size-button">S</span>
+                            <span id="M" class="size-button">M</span>
+                            <span id="L" class="size-button">L</span>
+                            <span id="XL" class="size-button">XL</span>
+                            <span id="2L" class="size-button">2L</span>
+                        </div>
+                        <form class="Quantity-form">
+                            <label>數量:</label><br>
+                            <select name="Quantity">
+                                <option value="">選擇尺寸</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>   
+                            </select>
+                            <input type="submit" name="product_submit" value="加入購物車" class="button">
+                        </form>
+                        <div class="size-list">尺寸表</div>
+                </section>
+            </figcaption>
+        </article>
+        <!----------------------------------------------Footer------------------------------------------------------->
+        <footer class="footer">
+            <div class="container">
+                <div class="column">
+                    <h5>品牌核心</h5>
+                    <p>台灣原創自有品牌。<br>服裝不僅是外在表象，而是內蘊的生活感受呈現，在季節與質感間取得完美平衡，設計出實穿的衣著品，給認真看待生活的你。<br><br>擁有隨心所欲的勇氣，穿喜歡的衣服，wearing &amp; showing，做自己好看的樣子。</p>
+                </div>
+                <div class="column">
+                    <h5>與我們聯絡</h5>
+                    <li> (MON-FRI) 9:00 – 18:00</li>
+                    <li>02-2995-9996</li>
+                    <li>02-2995-9978</li>
+                    <li>service@momoda.com.tw</li>
+                </div>
+                <div class="column">
+                    <h5>其他資訊</h5>
+                    <div id="column3">
+                        <div>
+                            <li><i class="fa fa-angle-double-right"></i> 會員權益</li>
+                            <li><i class="fa fa-angle-double-right"></i> 紅利回饋</li>
+                            <li><i class="fa fa-angle-double-right"></i> 售後服務</li>
+                            <li><i class="fa fa-angle-double-right"></i> 常見問題</li>
+                        </div>
+                        <div>
+                            <li><i class="fa fa-angle-double-right"></i> 品牌簡介</li>
+                            <li><i class="fa fa-angle-double-right"></i> 門市資訊</li>
+                            <li><i class="fa fa-angle-double-right"></i> 異業合作</li>
+                            <li><i class="fa fa-angle-double-right"></i> 重要訊息</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <h5>最新消息</h5>
+                    <div class="widget-posts-image">
+                        <img src="images/20190223154942917.jpg" alt=""/>
+                        <img src="images/20190218141450032.jpg" alt=""/>
+                        <img src="images/20190218124826439.jpg" alt=""/>
+                        <img src="images/20190130170319895.jpg" alt=""/>
+                        <img src="images/20181218110254090.jpg" alt=""/>
+                        <img src="images/20181109183506199.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2019 <a href=#>MOMODA</a>, All Rights Reserved</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>登入/註冊</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <style>
+            body{
+                margin: 0;
+                background:#f2f2f2;
+                min-width: 1200px;
+            }
+            Header,nav,article,footer{
+                display: flex;
+                flex-direction: column;
+            }
+            /*---------------------------------------------Header---------------------------------------------*/
+            .Header{
+                background: white;
+                width: 100%;
+                height: 130px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content:center;
+            }
+            /*----------------------------------------------logo----------------------------------------------*/
+            .logo{
+                background: url("images/LOGO.jpg") no-repeat;
+                width:  250px;
+                height: 109px;
+                background-size: contain;
+            }
+            /*-------------------------------------------right-loginbar--------------------------------------------*/
+            .right-loginbar{
+                position: absolute;
+                right: 20px;
+                top: 50px;
+                list-style: none;
+                display: flex;
+                flex-direction: row; 
+            }
+            .right-loginbar a{
+                text-decoration: none;
+                color: #999;
+                font-size: .8em;
+                font-weight: bold;
+                font-family: Lato,'PingFang TC', 'Hiragino Sans GB', 'Microsoft JhengHei', 'Helvetica Neue', icomoon, serif,sans-serif;
+                padding-right: 15px;
+                padding-left: 10px;
+                border-right: 1px solid #ccc;
+            }
+            #cart-a{
+                border-right: none;
+            }
+            #cart-countshow{
+                background-color: #E6B0AA;
+                color: #fff;
+                display: inline-block;
+                width: 19px;
+                height: 19px;
+                border-radius: 12px;
+                text-align: center;
+                line-height: 19px;
+                font-weight: normal;
+                font-size: 0.8em;
+                font-family: Roboto,'Hiragino Sans GB','PingFang TC','Microsoft JhengHei','Helvetica Neue',icomoon,serif,sans-serif;
+            }
+            /*-------------------------------------------left-loginbar--------------------------------------------*/
+            .left-loginbar{
+                display: flex;
+                flex-direction: row; 
+                position: absolute;
+                left: 40px;
+                top: 50px;
+            }
+            .left-loginbar a{
+                 color: #999;
+                 margin: 0 9px;
+                 font-size: 15px;
+                 transition: all 0.8s;
+            }
+            .fa-facebook-f:hover{
+                color: #3b5998;
+            }
+            .fa-instagram:hover{
+                color: #ed7e00;
+            }
+            .fa-envelope:hover{
+                color: #E6B0AA;
+            }
+            .fa-youtube-play:hover{
+                color: #ef1e07;
+            }
+            .fa-comment-o:hover{
+                color: #24dd00;
+            }
+            /*--------------------------------------------navbar-star--------------------------------------------*/
+            .navbar{
+                width: 100%;
+                max-height: 40px;
+                background: rgba(79,58,51,.7);
+                align-items: center;
+                justify-content:center;
+                position: sticky;
+                top: -5px;
+                transition: all 0.4s;
+                z-index: 9;
+            }
+            .navbar:hover{
+                background-color: rgba(229, 178, 160,.7);
+            }
+            .navbar:hover #search-button{
+                background-color:rgb(216, 150, 130);
+            }
+            .navbar ul{
+                width: 1000px;
+                list-style: none;
+                display: flex;
+                flex-direction: row; 
+                margin:  0 auto;
+                justify-content:center;/*裡面內容置中*/
+            }
+            .navbar li{
+                padding: 13px 20px 13px 20px;
+                transition:all 0.4s;
+            }
+            .navbar li:hover{
+                background-color: rgba(54,21,11,.4);
+                color: white;
+            }
+            .navbar ul li a{
+                text-decoration: none;
+                font-size: 12pt;
+                color: 	#fcfcfc;
+                font-family: "Roboto Condensed", sans-serif;
+            }
+            .label1,.label2{
+                position: relative;
+            }
+            .dropdown-content{
+                display: none;
+                position: absolute;
+                top:48px;
+                left: 0px;
+                min-width: 200px;
+                background: rgba(79,58,51,.7);
+                border: 1px solid rgba(79,58,51,.7);
+            }
+            .label1:hover .content1{
+                display: block;
+            }
+            .dropdown-content a{
+                padding: 12px 16px;
+                display: block;
+                transition: all 0.4s;
+            }
+            .dropdown-content a:hover{
+                background-color: rgba(229, 178, 160,.7);
+                color: white;
+                padding-left: 22px;
+            }
+            .label2:hover .content2{
+                display: block;
+                min-width: 300px;
+            }
+            #search-input {
+                padding: 6px;
+                margin: 8px 0;
+                font-size: 17px;
+                border: none;
+                display: none;
+                background-color: rgb(255, 252, 252);
+            }
+            #search-button {
+                margin: 8px 0;
+                color: #fcfcfc;
+                font-size: 10px;
+                border: none;
+                display: none;
+                background-color: #f4c2bc;
+                transition: all 1s;
+            }
+            /*--------------------------------------------Footer-start--------------------------------------------*/
+            .column h5{
+                box-sizing: border-box;
+                letter-spacing: 5px;
+                border-bottom: 1px dotted #eee;
+                font-size: 14px;
+                padding: 0 0 10px;
+                margin: 0 0 15px;
+                color: #FFF;
+            }
+            .column p{
+                box-sizing: border-box;
+                margin: 0 0 20px;
+                display: block;
+                font-size: 13px;
+                color: #FFF;
+                letter-spacing: 1.5px;
+                line-height: 1.5em;
+            }
+            .column li{
+                display: block;
+                font-size: 13px;
+                color: #FFF;
+                letter-spacing: 1.5px;
+                padding: 5px 0;
+            }
+            .container{
+                width: 1200px;
+                height: 200px;
+                margin: auto;
+                display: flex;
+                flex-direction: row;
+                justify-content:space-between;
+            }
+            .column{
+                width: 250px;
+                letter-spacing: 1.5px;
+            }
+            #column3{
+                display: flex;
+                flex-direction: row;
+            }
+            #column3 div{
+                margin-right: 50px;
+            }
+            .widget-posts-image{
+                float: left;
+            }
+            .widget-posts-image img{
+                width: 30%;
+                margin-bottom: 5px;
+            }
+            .copyright{
+                color: #ddd;
+                text-align: center;
+                font-family: "Roboto Condensed", sans-serif;
+                letter-spacing: 2px;
+                font-size: 11px;
+            }
+            .copyright a{
+                color: white;
+                text-decoration: none;
+            }
+            .main{
+                width: 800px;
+                height: 750px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: row;
+            }
+            .footer{
+                background: #222;
+                height: 400px;  
+                transition: all 1s;
+            }
+            .footer:hover{
+                background-color: rgb(229, 178, 160);
+            }
+
+            /*--------------------------------------------Footer-end--------------------------------------------*/
+            .member-login,.member-register{
+                width: 450px;
+                height: 550px;
+                margin-top: 70px;
+            }
+            .member-register{
+                border-left: 1px solid #BBB;
+            }
+            .title h3{
+                font-family: Garamond;
+                font-size: 40px;
+                font-weight: bold;
+                text-align: center;
+                color: #82726d;
+                line-height: 1.4;
+                margin-bottom: 0px;     
+                margin-top: 30px;
+            }
+            .title h4{
+                font-size: 20px;
+                margin: 0 auto;
+                margin-bottom: 50px;
+                color: #8b827f;
+                font-family: "Josefin Slab", serif;
+                text-align: center;
+                line-height: 1.4;
+                font-weight: 400;
+            }
+            fieldset{       
+                border: none;
+                height: 100px;
+                text-align: center;
+            }
+            .member-login input,.member-register input{
+                width: 250px;
+                height: 25px;
+                margin-bottom: 30px;
+            }
+            .member-login .button,.member-register .button{
+                border: none;
+                width: 40%;
+                height: 40px;
+                background-color: #f2f2f2;
+                border: #444 1px solid;
+                color: #333;
+                line-height: 30px;
+                font-size: 16px;
+                margin-top: 50px;
+                transition: background-color 0.6s;
+            }
+            .member-login .button:hover{
+                background-color: #444;
+                color: white;
+            }
+            .birthday-label{
+                font-size: 12px;
+                margin-right: 192px;
+            }
+            #birthday_input{
+                max-width: 42%;
+                margin-right: 80px;
+            }
+            .captcha_input{
+                max-width: 42%;
+                margin-left: 10px;
+            }
+            .register_captcha_input{
+                max-width: 42%;
+                margin-left: 38px;
+            }
+            .captcha_image{
+                margin-left: 10px;
+            }
+            .member-register .button:hover{
+                background-color: #444;
+                color: white;
+            }
+        </style>
+    </head>
+    <script src="https://code.jquery.com/jquery-3.0.0.js"
+            integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script>
+                $(document).ready(init);
+                function init() {
+                    $('[data-toggle="tooltip"]').tooltip();
+                    $("#search").click(showHandler);
+                }
+                function refreshCaptchaLogin() {
+                    $("#captchaImage1").attr("src", "images/captcha.jpeg?test=" + new Date());//變更網址，才會重新送請求，使用new Date()取的現在時間(秒)來refresh
+                }
+                function refreshCaptchaRegister() {
+                    $("#captchaImage2").attr("src", "images/register_captcha.jpeg?test=" + new Date());
+                }
+                function showHandler() {
+                    $("#search-input").fadeToggle(800);
+                    $("#search-button").fadeToggle(800);
+                }
+    </script>
+    <body>
+        <!----------------------------------------------Header------------------------------------------------------>
+        <Header class="Header">
+            <a href="/mmd"><div class="logo"></div></a>
+            <nav class="right-loginbar">
+                <a href="/mmd/login_register.html" data-toggle="tooltip" data-placement="top" title="登入">SING IN</a>
+                <a href="/mmd/login_register.html" data-toggle="tooltip" data-placement="top" title="會員中心"><i class="fa fa-user-o" style="font-size:12px;color: #999;font-weight: bold;"></i>&emsp;ACCOUNT</a>
+                <a href=# id="cart-a"><i class="fa fa-shopping-cart" style="font-size:15px;color: #999;"></i>&nbsp;&nbsp;<div id="cart-countshow" style="margin-top:-2px;">0</div></a>
+            </nav>
+            <nav class="left-loginbar">
+                <a href="" data-toggle="tooltip" data-placement="top" title="加入粉絲專頁"><i class="fa fa-facebook-f"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="加入instagram"><i class="fa fa-instagram"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="訂閱電子報"><i class="fa fa-envelope"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="新品直播"><i class="fa fa-youtube-play"></i></a>
+                <a href="" data-toggle="tooltip" data-placement="top" title="與我們聯絡"><i class="fa fa-comment-o"></i></a>
+                <a href="">&nbsp;&nbsp;</a>
+            </nav>
+        </header>
+        <!----------------------------------------------navbar------------------------------------------------------->
+        <nav class="navbar">
+            <ul>
+                <li><a href=#>新品上市</a></li>
+                <li><a href=#>熱銷排行</a></li>
+                <li class="label1"><a href="/mmd/product_list.html">全部商品</a>
+                    <div class="dropdown-content content1">
+                        <a href=#>上衣</a>
+                        <a href=#>洋裝</a>
+                        <a href=#>下著</a>
+                        <a href=#>外套</a>
+                        <a href=#>配件</a>
+                    </div>
+                </li>
+                <li class="label2"><a href=#>穿搭提案</a>
+                    <div class="dropdown-content content2">
+                        <a href=#>完美化身♥韓劇女主角&nbsp;&nbsp;激似款特搜</a>
+                        <a href=#>情人節攻略&nbsp;&nbsp;撩男友必學穿搭術</a>
+                        <a href=#>寬褲好比例這樣穿&nbsp;&nbsp;腿長UP UP!</a>
+                    </div>
+                </li>
+                <li><a href=#>SALE</a></li>
+                <li >
+                    <i id="search" class="fa fa-search" style="font-size:16px;color:#fff;vertical-align: middle;"></i>
+                </li>
+                <input id="search-input" type="text" placeholder="Search.." name="search"><input id="search-button" type="submit" value="GO">
+            </ul>
+        </nav>
+        <!---------------------------------------------article------------------------------------------------------>
+        <article class="main">
+            <section class="member-login">
+                <div class="title">
+                    <h3>SIGN IN</h3>
+                    <h4>會員登錄</h4>
+                </div>
+                <!--------------------------------------------login-form---------------------------------------------------->
+                <form method="POST" action="login.do" autocomplete="on">
+                    <fieldset>
+                        <label for="email"></label>
+                        <input type="email" name="email" placeholder="會員帳號 E-MAIL*" autofocus required><br>
+                        <label for="pwd"></label>
+                        <input type="password" name="pwd" placeholder="會員密碼 Password*" required><br>
+                        <label for="captcha"></label>
+                        <input type="text" name="captcha" class="captcha_input" placeholder="輸入驗證碼*" autocomplete="off" required>
+                        <a href="javascript:refreshCaptchaLogin()" title="看不清楚?請點選更新驗證碼">
+                            <img class="captcha_image" id="captchaImage1" src="images/captcha.jpeg"><br>
+                        </a>
+                        <br>
+                        <input type="submit" name="login_submit" value="SIGN IN" class="button">
+                    </fieldset>
+                </form>
+                <!-------------------------------------------register-form---------------------------------------------------->
+            </section>
+            <section class="member-register">
+                <div class="title">
+                    <h3>REGISTER</h3>
+                    <h4>會員註冊</h4>
+                </div>
+                <form action="register.do" method="post" autocomplete="on">
+                    <fieldset>
+                        <label for="email"></label>
+                        <input type="email" name="email" placeholder="會員帳號 E-MAIL *" required><br>
+                        <label for="password"></label>
+                        <input type="password" name="pwd" placeholder="輸入密碼 Password*" minlength="6" maxlength="20" required><br>
+                        <label for="password"></label>
+                        <input type="password" name="pwd2"  placeholder="密碼確認 Confirm Password*" minlength="6" maxlength="20" required><br>
+                        <label for="name"></label>
+                        <input type="text" name="name" placeholder="輸入姓名*" required><br>
+                        <label class="birthday-label" for="age">出生日期 :</label><br>
+                        <input type="date" name="birthday" id="birthday_input" min="1920-01-01" max="2020-04-15"><br>
+                        <input type="text" name="captcha" class="register_captcha_input" placeholder="輸入驗證碼*" autocomplete="off" required>
+                        <a href="javascript:refreshCaptchaRegister()" title="看不清楚?請點選更新驗證碼">
+                            <img class="captcha_image" id="captchaImage2" src="images/register_captcha.jpeg"><br>
+                        </a>
+                        <input type="submit" name="register_submit" value="JOIN" class="button">
+                    </fieldset>
+                </form>
+            </section>
+        </article>
+        <!----------------------------------------------Footer------------------------------------------------------->
+        <footer class="footer">
+            <div class="container">
+                <div class="column">
+                    <h5>品牌核心</h5>
+                    <p>台灣原創自有品牌。<br>服裝不僅是外在表象，而是內蘊的生活感受呈現，在季節與質感間取得完美平衡，設計出實穿的衣著品，給認真看待生活的你。<br><br>擁有隨心所欲的勇氣，穿喜歡的衣服，wearing &amp; showing，做自己好看的樣子。</p>
+                </div>
+                <div class="column">
+                    <h5>與我們聯絡</h5>
+                    <li> (MON-FRI) 9:00 – 18:00</li>
+                    <li>02-2995-9996</li>
+                    <li>02-2995-9978</li>
+                    <li>service@momoda.com.tw</li>
+                </div>
+                <div class="column">
+                    <h5>其他資訊</h5>
+                    <div id="column3">
+                        <div>
+                            <li><i class="fa fa-angle-double-right"></i> 會員權益</li>
+                            <li><i class="fa fa-angle-double-right"></i> 紅利回饋</li>
+                            <li><i class="fa fa-angle-double-right"></i> 售後服務</li>
+                            <li><i class="fa fa-angle-double-right"></i> 常見問題</li>
+                        </div>
+                        <div>
+                            <li><i class="fa fa-angle-double-right"></i> 品牌簡介</li>
+                            <li><i class="fa fa-angle-double-right"></i> 門市資訊</li>
+                            <li><i class="fa fa-angle-double-right"></i> 異業合作</li>
+                            <li><i class="fa fa-angle-double-right"></i> 重要訊息</li>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <h5>最新消息</h5>
+                    <div class="widget-posts-image">
+                        <img src="images/20190223154942917.jpg" alt=""/>
+                        <img src="images/20190218141450032.jpg" alt=""/>
+                        <img src="images/20190218124826439.jpg" alt=""/>
+                        <img src="images/20190130170319895.jpg" alt=""/>
+                        <img src="images/20181218110254090.jpg" alt=""/>
+                        <img src="images/20181109183506199.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2019 <a href=#>MOMODA</a>, All Rights Reserved</p>
+        </footer>
+    </body>
+</html>

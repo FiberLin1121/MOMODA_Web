@@ -1,0 +1,62 @@
+            article {
+                font-size: 16px;
+                padding: 25px 55px 50px;
+                display: flex;
+                flex-direction: row;
+                font-family: Lato,'PingFang TC', 'Hiragino Sans GB', 'Microsoft JhengHei', 'Helvetica Neue', icomoon, serif,sans-serif;
+            }
+/*----------------------------------------------aside-menu-------------------------------------------------------*/
+            .aside-menu{
+                margin-left: -50px;
+                width: 220px;
+                min-width: 150px;
+                min-height: 1000px;
+                background: #fcfcfc;
+            }
+            .aside-menu section{
+                margin-top: 35px;
+                margin-left: -10px;
+                display: block;
+                width:200px; 
+            }
+            .aside-menu .first{
+                margin-top: 0;
+            }
+            .aside-menu h3{
+                display:block;
+                color: #E6B0AA;
+                margin: 0;
+                position: relative;
+                font-size: 1.2em;
+                font-family: 'Trajan Pro','Playfair Display','Microsoft JhengHei','Hiragino Sans GB','PingFang TC';
+            }
+            .aside-menu span{
+                font-size: 0.8em;
+                color: #a0826e;
+                display: block;
+                line-height: 1.2em;
+                margin-bottom: 11px;
+                font-weight: bold;
+                letter-spacing: 0.08em;
+                margin-top: 25px;
+            }
+            .aside-menu li{
+                list-style-type: none; 
+            }
+            .aside-menu a {
+                font-family: Roboto,'Hiragino Sans GB','PingFang TC','Microsoft JhengHei','Helvetica Neue',icomoon,serif,sans-serif;
+                font-weight: 300;
+                line-height: 2.4em;
+                font-size: 0.78em;
+                color: #444;
+                text-decoration:none;
+                letter-spacing: 0.1em;
+            }
+            .aside-menu a:hover{
+                color: #E6B0AA;
+                padding-bottom: 3px;
+                border-bottom: 1px solid #E6B0AA; 
+            }
+            .aside-menu ul a span{
+                font-size: 1em;
+            }   
